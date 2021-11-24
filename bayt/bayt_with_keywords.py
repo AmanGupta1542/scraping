@@ -27,7 +27,7 @@ elif  table_type  == 3 or table_type  == 4:
     #workorder_id =input("Enter workorder Id:- ").strip()
     #country_id = input("Enter Country Id:- ").strip()
     
-    query ="select top 100 * from IndeedInput where  IsbytejobProcessed=0 and isactive = 1 and workorderid in (504,494) and countryid in (51,48,188,37,35,32,31,171,165,24,21,19,16,13,153,5,38)" #and searchkeyword in ('learning officer') "#.format(workorder_id)
+    query ="select top 1 * from IndeedInput where  IsbytejobProcessed=0 and isactive = 1 and workorderid in (504,494) and countryid in (51,48,188,37,35,32,31,171,165,24,21,19,16,13,153,5,38)" #and searchkeyword in ('learning officer') "#.format(workorder_id)
     #query ="select top 100 * from IndeedInput where  IsADZUNAjobProcessed=0 and searchkeyword not in('recruiter','training','fastly') and CountryId={} and workorderid={}   and countryid in (13,125,182,38,36,88,198,86,74,67,69,107,128,55,192,101) and  IsActive=1  order by Id desc ".format(country_id,workorder_id)
 
 else:
@@ -76,7 +76,7 @@ while True:
             if table_type == 2 or table_type == 4 :
                 main_url = domain+job_qry+'-jobs/?filters%5Bjb_last_modification_date_interval%5D%5B%5D=1'
             else : 
-                main_url = domain+job_qry+'-jobs'
+                main_url = domain+job_qry+'-jobs/'
             try :
                 totalPages = bayt_get_total_pages(link_Result(main_url)) 
             except:
@@ -93,7 +93,7 @@ while True:
                     c = c.replace(' ','-')
                     print(c)
                     if table_type == 1 or table_type == 3 :
-                        urll = 'https://www.bayt.com/en/'+domain_c[0]+'/jobs/'+job_qry+'-jobs-in-'+c
+                        urll = 'https://www.bayt.com/en/'+domain_c[0]+'/jobs/'+job_qry+'-jobs-in-'+c+'/'
                     else :
                         urll = 'https://www.bayt.com/en/'+domain_c[0]+'/jobs/'+job_qry+'-jobs-in-'+c+'/?filters%5Bjb_last_modification_date_interval%5D%5B%5D=1'
                         #https://www.bayt.com/en/india/jobs/jobs-in-bengaluru/?filters%5Bjb_last_modification_date_interval%5D%5B%5D=1&page=2

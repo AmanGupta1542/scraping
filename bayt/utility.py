@@ -132,9 +132,9 @@ def page_loop(totalPages,table_type,country_code,woid,job_qry,main_url):
             if table_type == 2 or table_type == 4 :
                 urll = main_url + '&page='+str(start)
             else:
-                urll = main_url + '/?page='+str(start)
+                urll = main_url + '?page='+str(start)
     
-            print(urll)
+            #print(urll)
             page = requests.get(urll , timeout=50)
             soup = get_soup(page.text)
             
